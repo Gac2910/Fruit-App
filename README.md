@@ -1,6 +1,4 @@
-��#� �F�r�u�i�t�-�A�p�p�
-�
-�
+# Fruit-App
 
 First execute the database script FruitsDB in SQL Server
   - File paths inside the script may need to be changed in order for the script to execute
