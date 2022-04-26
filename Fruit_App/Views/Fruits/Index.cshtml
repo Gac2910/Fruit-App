@@ -1,0 +1,67 @@
+﻿@model FruitsModel
+@{
+    ViewData["Title"] = "Fruits";
+    FruitsModel.Init();
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Manage Fruits</h1>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 id="form-title">Insert New Fruit</h3>
+            <form onsubmit="return false" style="text-align:justify" method="POST" id="fruit-form">
+                <label for="name-input">Fruit Name</label>
+                <input id="name-input" class="form-control" name="Name" />
+                <label for="color-input">Color</label>
+                <input id="color-input" class="form-control" name="Color" />
+                <label for="taste-input">Taste</label>
+                <input id="taste-input" class="form-control" name="Taste" />
+                <br />
+                <button onclick="insertClick()" class="btn btn-success" type="submit" id="insert-btn">Submit Fruit</button>
+                <button onclick="updateFruit()" class="btn btn-success" type="submit" id="update-btn">Update Fruit</button>
+            </form>
+        </div>
+        <div class="col-lg-8">
+            <h3>Table of Fruit</h3>
+            <table id="fruit-table">
+                <colgroup>
+                    <col span="1" width="50" />
+                    <col span="3" />
+                    <col span="1" width="175" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Taste</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="fruits-tbody">
+                    @for(int i = 0; i < FruitsModel.fruitData.Rows.Count; i++)
+                    {
+                        <tr>
+                            <td>@FruitsModel.fruitData.Rows[i]["id"]</td>
+                             <td>@FruitsModel.fruitData.Rows[i]["name"]</td>
+                             <td>@FruitsModel.fruitData.Rows[i]["color"]</td>
+                             <td>@FruitsModel.fruitData.Rows[i]["taste"]</td>
+                            <td>
+                                <button onclick="deleteClick(@FruitsModel.fruitData.Rows[i]["id"])" class="btn btn-danger">Delete</button>
+                                &emsp;
+                                <button onclick="updateClick(
+                                    '@FruitsModel.fruitData.Rows[i]["id"]',
+                                    '@FruitsModel.fruitData.Rows[i]["name"]',
+                                    '@FruitsModel.fruitData.Rows[i]["color"]',
+                                    '@FruitsModel.fruitData.Rows[i]["taste"]')" 
+                                class="btn btn-primary">Update</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

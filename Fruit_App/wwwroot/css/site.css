@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+#fruit-table {
+    width: 100%;
+}
+
+#fruit-table tbody tr td {
+    color: white;
+    padding: 5px;
+}
+
+#fruit-table tbody tr:nth-child(odd) {
+    background: rgb(50, 50, 50);
+}
+
+#fruit-table tbody tr:nth-child(even) {
+    background: black;
+}
+
+.btn-danger, .btn-primary {
+    padding: 2px 5px;
+}
+
+#update-btn {
+    display: none;
+}
