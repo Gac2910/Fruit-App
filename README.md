@@ -8,3 +8,5 @@ This project uses 2 dependencies from NuGet
   - Newtonsoft.Json
 
 The connection string for the database may need to be changed in the Database.cs class file
+
+Running the app in dev mode should start the server on localhost:5000
